@@ -3,25 +3,33 @@
 
 /**
  * _strspn - gets the length of a prefix substring
+ * @s: the string to search
+ * @accept: the bytes to search for
  *
- * @s: value from main
- * @accept: value from main
- *
- * Return: value of counter
+ * Return: the number of bytes in the initial segment of s which consist only of bytes from accept
  */
 
-char* _strpbrk(char* s, char* accept) 
+unsigned int _strspn(char *s, char *accept)
 {
-    
-    while (*s != '\0')
+    unsigned int count = 0;
+    int found = 1;
+
+    /* Iterate over each character in s until we find one that's not in accept */
+    while (*s && found)
     {
-        if (_strchr(accept, *s) != NULL) 
+        found = 0;
+        /* Iterate over each character in accept and compare it to the current character in s */
+        for (char *a = accept; *a; a++)
         {
-            return s;
+            if (*s == *a)
+            {
+                count++;
+                found = 1;
+                break;
+            }
         }
         s++;
     }
-    
-    return NULL;
-    
+
+    return count;
 }
