@@ -1,21 +1,30 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
- * Returns the length of the longest initial substring of s that consists
- * entirely of characters from accept.
- * @param s A pointer to the string to search.
- * @param accept A pointer to the string of characters to accept.
- * @return The length of the longest initial substring of s that consists
- *         entirely of characters from accept.
+ * _strspn - gets the length of a prefix substring
+ *
+ * @s: input string
+ * @accept: prefix string
+ *
+ * Return: length of prefix substring
  */
-unsigned int _strspn(char* s, char* accept) {
-    unsigned int count = 0;
-    while (*s != '\0') {
-        if (_strchr(accept, *s) == NULL) {
-            break;
+
+unsigned int _strspn(char *s, char *accept)
+{
+    int i, j, count = 0;
+
+    for (i = 0; accept[i] != '\0'; i++)
+    {
+        for (j = 0; s[j] != '\0'; j++)
+        {
+            if (accept[i] == s[j])
+            {
+                count++;
+                break;
+            }
         }
-        count++;
-        s++;
     }
+
     return count;
 }
