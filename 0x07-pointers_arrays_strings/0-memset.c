@@ -1,8 +1,9 @@
 /**
- * _memset - Sets the first n bytes of the memory area 
+ * _memset - fills first n bytes of memory area pointed by constant byte b
+ *
  * @s: A pointer to the memory area to fill
- * @b: The value to set each byte to.
- * @n: The number of bytes to fill.
+ * @b: The value to set each byte to
+ * @n: The number of bytes to fill
  *
  * Return: A pointer to the memory area s
  */
