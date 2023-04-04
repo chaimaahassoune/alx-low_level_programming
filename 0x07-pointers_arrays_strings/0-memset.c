@@ -1,11 +1,11 @@
 /**
- * _memset - fills first n bytes of memory area pointed by constant byte b
+ * Sets the first n bytes of the memory area pointed to by s to the constant byte b.
  *
- * @s: value from main
- * @b: value from main
- * @n: value from main
+ * @s: A pointer to the memory area to fill
+ * @b: The value to set each byte to.
+ * @n: The number of bytes to fill.
  *
- * Return: value of s
+ * Return: A pointer to the memory area s
  */
 
 char *_memset(char *s, char b, unsigned int n)
