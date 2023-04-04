@@ -1,24 +1,23 @@
-#include "main.h"
 /**
- * print_chessboard - prints the chessboard to the console
- * @a: 2D array of characters representing the chessboard
+ * print_chessboard - prints a chessboard
+ *
+ * @a: 2D array containing the chessboard
  *
  * Return: void
  */
+
+#include "main.h"
+
 void print_chessboard(char (*a)[8])
 {
-    int i, j;
+    int x, y;
 
-    /* Loop through each row of the chessboard */
-    for (i = 0; i < 8; i++)
+    for (x = 0; x < 8; x++)
     {
-        /* Loop through each column of the current row */
-        for (j = 0; j < 8; j++)
+        for (y = 0; y < 8; y++)
         {
-            /* Print the current character followed by a space */
-           _putchar(a[x][y]);
+            _putchar(a[x][y]);
         }
-        /* Move to the next line after each row */
         _putchar('\n');
     }
 }
