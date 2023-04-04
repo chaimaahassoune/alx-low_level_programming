@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 /**
  * _strstr - locates a substring within a string
  *
