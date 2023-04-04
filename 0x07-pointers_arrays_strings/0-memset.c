@@ -1,4 +1,3 @@
-#include "main.h" 
 /**
  * Sets the first n bytes of the memory area pointed to by s to the constant byte b.
  *
