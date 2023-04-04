@@ -1,21 +1,34 @@
 #include "main.h"
 
 /**
- * Returns the length of the longest initial substring of s that consists
- * entirely of characters from accept.
- * @param s A pointer to the string to search.
- * @param accept A pointer to the string of characters to accept.
- * @return The length of the longest initial substring of s that consists
- *         entirely of characters from accept.
+ * _strspn - gets the length of a prefix substring
+ * @s: the string to search
+ * @accept: the bytes to search for
+ *
+ * Return: the number of bytes in the initial segment of s which consist only of bytes from accept
  */
-unsigned int _strspn(char* s, char* accept) {
+
+unsigned int _strspn(char *s, char *accept)
+{
     unsigned int count = 0;
-    while (*s != '\0') {
-        if (_strchr(accept, *s) == NULL) {
-            break;
+    int found = 1;
+
+    /* Iterate over each character in s until we find one that's not in accept */
+    while (*s && found)
+    {
+        found = 0;
+        /* Iterate over each character in accept and compare it to the current character in s */
+        for (char *a = accept; *a; a++)
+        {
+            if (*s == *a)
+            {
+                count++;
+                found = 1;
+                break;
+            }
         }
-        count++;
         s++;
     }
+
     return count;
 }
