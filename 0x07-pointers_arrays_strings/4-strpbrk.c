@@ -2,34 +2,28 @@
 #include <stdio.h>
 
 /**
- * _strspn - gets the length of a prefix substring
- * @s: the string to search
- * @accept: the bytes to search for
+ * _strpbrk - searches a string for any of a set of bytes
  *
- * Return: the number of bytes in the initial segment of s which consist only of bytes from accept
+ * @s: input string
+ * @accept: set of bytes to search for
+ *
+ * Return: pointer to the first occurrence of a matching byte or NULL if not found
  */
 
-unsigned int _strspn(char *s, char *accept)
+char *_strpbrk(char *s, char *accept)
 {
-    unsigned int count = 0;
-    int found = 1;
+    int i, j;
 
-    /* Iterate over each character in s until we find one that's not in accept */
-    while (*s && found)
+    for (i = 0; s[i] != '\0'; i++)
     {
-        found = 0;
-        /* Iterate over each character in accept and compare it to the current character in s */
-        for (char *a = accept; *a; a++)
+        for (j = 0; accept[j] != '\0'; j++)
         {
-            if (*s == *a)
-            {
-                count++;
-                found = 1;
-                break;
-            }
+            if (s[i] == accept[j])
+            
+                return &s[i];
+            
         }
-        s++;
     }
 
-    return count;
+    return NULL;
 }
