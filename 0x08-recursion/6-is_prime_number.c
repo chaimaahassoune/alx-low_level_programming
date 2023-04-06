@@ -25,5 +25,5 @@ int is_prime_helper(int n, int divisor)
  */
 int is_prime_number(int n)
 {
-	return (is_prime_number(n, n - 1));
+	return (is_prime_helper(n, n - 1));
 }
