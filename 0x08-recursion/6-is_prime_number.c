@@ -14,7 +14,7 @@ int is_prime_helper(int n, int divisor)
 	else if (divisor == 1)
 		return (1);
 	else
-		return (is_prime_number_counter(n, divisor - 1));
+		return (is_prime_helper(n, divisor - 1));
 }
 
 /**
