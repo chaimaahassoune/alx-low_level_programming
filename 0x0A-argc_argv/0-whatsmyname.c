@@ -8,7 +8,7 @@
  *
  * return: 0 on success
  */
-int main(int argc, char *argv[])
+int main( char *argv[])
 {
 	int i = 0;
 	while (argv[0][i] != '\0')
