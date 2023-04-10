@@ -8,7 +8,7 @@
  *
  * return: 0 on success
  */
-int main( char *argv[])
+int main(int argc, char *argv[])
 {
 	int i = 0;
 	while (argv[0][i] != '\0')
@@ -17,5 +17,6 @@ int main( char *argv[])
 		i++;
 	}
 	_putchar('\n');
+	(void)argc;
 	return (0);
 }
