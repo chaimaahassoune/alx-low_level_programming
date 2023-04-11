@@ -23,7 +23,7 @@ int main(int argc, char **argv)
 	{
 		number = atoi(argv[i]);
 
-		if (number <= 0)
+		if (number < 0)
 		{
 			printf("Error\n");
 			return (1);
