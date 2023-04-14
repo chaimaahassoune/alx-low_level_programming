@@ -12,7 +12,7 @@
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	char *tab;
-	unsigned int i,k;
+	unsigned int i, k;
 
 	k = nmemb * size;
 
