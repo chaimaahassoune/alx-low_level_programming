@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
 #ifndef DOG_H_FILE
 #define DOG_H_FILE
 
@@ -19,7 +17,9 @@ typedef struct dog
 	char *owner;
 } my_dog;
 
+void init_dog(struct dog *d, char *name, float age, char *owner);
 my_dog *new_dog(char *name, float age, char *owner);
+
 
 #endif /* DOG_H_FILE */
 
