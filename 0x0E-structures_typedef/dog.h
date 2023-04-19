@@ -18,4 +18,7 @@ typedef struct dog
 	char *owner;
 } my_dog;
 
+my_dog *new_dog(char *name, float age, char *owner);
+
 #endif /* DOG_H_FILE */
+
