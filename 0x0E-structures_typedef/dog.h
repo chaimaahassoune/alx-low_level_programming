@@ -1,5 +1,6 @@
-#ifndef DOC_H
-#define DOG_H
+#ifndef DOG_H_FILE
+#define DOG_H_FILE
+
 
 /**
  * struct dog - it represente a dog
@@ -16,4 +17,9 @@ typedef struct dog
 	char *owner;
 } my_dog;
 
-#endif /* DOG_H */
+void init_dog(struct dog *d, char *name, float age, char *owner);
+my_dog *new_dog(char *name, float age, char *owner);
+
+
+#endif /* DOG_H_FILE */
+

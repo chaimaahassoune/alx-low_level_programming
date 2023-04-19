@@ -3,13 +3,13 @@
 ## Resources
 Read or watch:
 
-* [0x0d. Structures.pdf] (https://intranet.alxswe.com/projects/225#quiz-completed:~:text=0x0d.%20Structures.pdf)
-* [struct (C programming language)] (https://intranet.alxswe.com/projects/225#quiz-completed:~:text=struct%20(C%20programming%20language))
-* [Documentation: structures] (https://intranet.alxswe.com/projects/225#quiz-completed:~:text=Documentation%3A%20structures)
-* [0x0d. Typedef and structures.pdf] (https://intranet.alxswe.com/projects/225#quiz-completed:~:text=0x0d.%20Typedef%20and%20structures.pdf)
-* [typedef] (https://publications.gbdirect.co.uk//c_book/chapter8/typedef.html)
-* ** Programming** in C by Stephen Kochan - Chapter 8, Working with Structures p163-189
-* [The Lost Art of C Structure Packing] (http://www.catb.org/esr/structure-packing/)
+* [0x0d. Structures.pdf](https://intranet.alxswe.com/projects/225#quiz-completed:~:text=0x0d.%20Structures.pdf)
+* [struct (C programming language)](https://intranet.alxswe.com/projects/225#quiz-completed:~:text=struct%20(C%20programming%20language))
+* [Documentation: structures](https://intranet.alxswe.com/projects/225#quiz-completed:~:text=Documentation%3A%20structures)
+* [0x0d. Typedef and structures.pdf](https://intranet.alxswe.com/projects/225#quiz-completed:~:text=0x0d.%20Typedef%20and%20structures.pdf)
+* [typedef](https://publications.gbdirect.co.uk//c_book/chapter8/typedef.html)
+* **Programming** in C by Stephen Kochan - Chapter 8, Working with Structures p163-189
+* [The Lost Art of C Structure Packing](http://www.catb.org/esr/structure-packing/)
 ## Learning Objectives
 At the end of this project, you are expected to be able to explain to anyone,**without the help of Google**
 ### General
