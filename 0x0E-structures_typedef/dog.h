@@ -1,7 +1,8 @@
-#ifndef DOG_H_FILE
-#define DOG_H_FILE
 #include <stdio.h>
 #include <stdlib.h>
+#ifndef DOG_H_FILE
+#define DOG_H_FILE
+
 
 /**
  * struct dog - it represente a dog 
