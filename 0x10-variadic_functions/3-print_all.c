@@ -16,7 +16,7 @@ void print_all(const char * const format, ...)
 	va_list arg;
 	int p = 0;
 	char *s, 
-	char *separator = ", ";
+	char *separator = "";
 	
 	
 	va_start(arg, format);
@@ -42,8 +42,12 @@ void print_all(const char * const format, ...)
 						s = "(nil)";
 					printf("%s%s", separator, s);
 					break;
+					
+				default:
+					i++;
+					continue;
 			}
-			
+			separator = ", ";
 			p++;
 		}
 	}
