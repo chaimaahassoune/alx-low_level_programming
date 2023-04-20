@@ -15,10 +15,17 @@ void print_all(const char * const format, ...)
 {
 	va_list arg;
 	int p = 0;
+<<<<<<< HEAD
 	char *s;
 	char *separator = "";
 
 
+=======
+	char *s; 
+	char *separator = "";
+	
+	
+>>>>>>> 32a75305725a6c4e7551e614d3d9071b9a0e4124
 	va_start(arg, format);
 
 	if (format)
@@ -42,7 +49,11 @@ void print_all(const char * const format, ...)
 						s = "(nil)";
 					printf("%s%s", separator, s);
 					break;
+<<<<<<< HEAD
 
+=======
+					
+>>>>>>> 32a75305725a6c4e7551e614d3d9071b9a0e4124
 				default:
 					p++;
 					continue;
