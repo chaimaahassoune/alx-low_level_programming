@@ -15,7 +15,7 @@ void print_all(const char * const format, ...)
 {
 	va_list arg;
 	int p = 0;
-	char *s, 
+	char *s; 
 	char *separator = "";
 	
 	
@@ -44,7 +44,7 @@ void print_all(const char * const format, ...)
 					break;
 					
 				default:
-					i++;
+					p++;
 					continue;
 			}
 			separator = ", ";
