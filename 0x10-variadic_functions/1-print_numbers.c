@@ -5,6 +5,7 @@
 /**
  * print_numbers - Prints numbers
  * @separator: the separator
+ * @n: the number of string
  * @...: The int to print
  *
  * Return: void
