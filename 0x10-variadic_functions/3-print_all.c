@@ -13,43 +13,44 @@
  */
 void print_all(const char * const format, ...)
 {
+	int p = 0, num = 0;
 	va_list arg;
-	int p = 0;
-	char *s, *separator = " ";
-
+	char *s;
+	char *separator = ", ";
+	
 
 	va_start(arg, format);
+	
 
-	if (format)
+	while (format && format[p])
+		p++;
+
+	while (format && format[num])
 	{
-		while (format[p])
+		if (num  == (p - 1))
 		{
-			switch (format[p])
-			{
-				case 'c':
-					printf("%s%c", separator, va_arg(arg, int));
-					break;
-				case 'i':
-					printf("%s%d", separator, va_arg(arg, int));
-					break;
-				case 'f':
-					printf("%s%f", separator, va_arg(arg, double));
-					break;
-				case 's':
-					s = va_arg(arg, char *);
-					if (!s)
-						s = "(nil)";
-					printf("%s%s", separator, s);
-					break;
-
-				default:
-					p++;
-					continue;
-			}
-			separator = ", ";
-			p++;
+			separator = "";
 		}
+		switch (format[num])
+		{
+		case 'c':
+			printf("%c%s", va_arg(arg, int), separator);
+			break;
+		case 'i':
+			printf("%d%s", va_arg(arg, int), separator);
+			break;
+		case 'f':
+			printf("%f%s", va_arg(arg, double), separator);
+			break;
+		case 's':
+			s = va_arg(arg, char *);
+			if (s == NULL)
+				s = "(nil)";
+			printf("%s%s", s, separator);
+			break;
+		}
+		num++;
 	}
-	va_end(arg);
 	printf("\n");
+	va_end(arg);
 }
