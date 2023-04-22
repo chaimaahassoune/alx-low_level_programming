@@ -21,13 +21,17 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		return (1);
 	}
+	
 	q = atoi(argv[1]);
+	
+	
 	if (q < 0)
 	{
 		printf("Error\n");
 		exit(2);
 	}
 
+	
 	for (p = 0; p < q; p++)
 	{
 		printf("%02hhx", *((char *)main + p));
