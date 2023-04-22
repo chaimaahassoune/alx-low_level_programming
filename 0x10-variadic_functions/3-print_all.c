@@ -43,11 +43,8 @@ void print_all(const char * const format, ...)
 			printf("%f%s", va_arg(arg, double), separator);
 			break;
 		case 's':
-<<<<<<< HEAD
 			s = va_arg(arg, char *);
-=======
-			str = va_arg(arg, char *);
->>>>>>> d6e62df4e5c89cc286f526326f85907bb9a63ffd
+				
 			if (s == NULL)
 				s = "(nil)";
 			printf("%s%s", s, separator);
@@ -58,3 +55,4 @@ void print_all(const char * const format, ...)
 	printf("\n");
 	va_end(arg);
 }
+
