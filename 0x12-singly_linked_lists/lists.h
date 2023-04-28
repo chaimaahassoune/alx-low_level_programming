@@ -3,7 +3,7 @@
 
 /**
  * struct list_s - a singly linked list
- * @str: string 
+ * @str: string
  * @len: length of the string
  * @next: struct
  *
