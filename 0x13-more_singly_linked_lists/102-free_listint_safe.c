@@ -10,24 +10,22 @@
 size_t free_listint_safe(listint_t **h)
 {
 	size_t c = 0;
-	listint_t *tmp;
+	listint_t *current = head;
 
-	if (h == NULL || *h == NULL)
-		return (0);
-
-	while (*h != NULL)
+	while (current != NULL && current->next != head)
 	{
-		tmp = (*h)->next;
-		free(*h);
-		*h = tmp;
+		printf("[%p] %d\n", (void *)current, current->n);
+		current = current->next;
 		c++;
-
-		if (tmp >= *h)
-		{
-			*h = NULL;
-			break;
-		}
 	}
+
+
+	if (current != NULL)
+	{
+		printf("[%p] %d\n", (void *)current, current->n);
+		c++
+	}
+
 	return (c);
 }
 
