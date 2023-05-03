@@ -8,35 +8,33 @@
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	const listint_t *s, *f;
-	size_t c = 0;
-
-	if (head == NULL)
-		return (0);
-
-	s = f = head;
+	const listint_t *current_n = NULL;
+	const listint_t *last_node = NULL;
+	size_t i = 0;
+	size_t node;
 
 
-	while (s && f && f->next)
+	current_n = head;
+	while (current_n)
 	{
-		s = s->next;
-		f = f->next->next;
-
-		if (s == f)
+		printf("[%p] %d\n", (void *)current_n, current_n->n);
+		i++;
+		current_n = current_n->next;
+		last_node = head;
+		node = 0;
+	
+		while (node < i)
 		{
-			printf("-> [%p] %d\n", (void *)s, s->n);
-			printf("-> [%p] %d\n", (void *)f, f->n);
-			printf("-> [%p] %d\n", (void *)f, f->n);
-			printf("-> [%p] %d\n", (void *)s->next, s->next->n);
-			printf("-> [%p] %d\n", (void *)f->next->next, f->next->next->n);
-			printf("Error: loop detected\n");
-			exit(98);
+			if (current_n == last_node)
+			{
+				printf("-> [%p] %d\n", (void *)current_n, current_n->n);
+				return (i);
+			}
+			last_node = last_node->next;
+			node++;
 		}
-		printf("[%p] %d\n", (void *)s, s->n);
-		c++;
+		if (!head)
+			exit(98);
 	}
-	printf("[%p] %d\n", (void *)s, s->n);
-	c++;
-	return (c);
+	return (i);
 }
-
