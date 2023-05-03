@@ -13,28 +13,28 @@ size_t free_listint_safe(listint_t **h)
 	listint_t *current;
 	int d;
 
-	if (!head || !*head)
+	if (!h || !*h)
 		return (0);
-	while (*head)
+	while (*h)
 	{
-		d = *head - (*head)->next;
+		d = *h - (*h)->next;
 
 		if (d > 0)
 		{
-			current = (*head)->next;
-			free(*head);
-			*head = current;
+			current = (*h)->next;
+			free(*h);
+			*h = current;
 			c++;
 		}
 		else
 		{
-			free(*head);
-			*head = NULL;
+			free(*h);
+			*h = NULL;
 			c++;
 			break;
 		}
 	}
-	*head = NULL;
+	*h = NULL;
 	return (c);
 }
 

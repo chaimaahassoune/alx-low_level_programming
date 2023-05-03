@@ -22,7 +22,7 @@ size_t print_listint_safe(const listint_t *head)
 		current_n = current_n->next;
 		last_node = head;
 		node = 0;
-	
+
 		while (node < i)
 		{
 			if (current_n == last_node)
