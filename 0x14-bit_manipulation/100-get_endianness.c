@@ -8,12 +8,8 @@
  */
 int get_endianness(void)
 {
-	union
-	{
-		uint32_t i;
-		char c[4];
-	} endian;
+	int i = 1;
 
-	endian.i = 1;
-	return ((int)endian.c[0]);
+	char *c = (char*)&i;
+	return (*c == 1);
 }
