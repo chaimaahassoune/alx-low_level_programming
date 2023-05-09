@@ -1,5 +1,10 @@
 #include "main.h"
 #define BUFSIZE (1024)
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <fcntl.h>
+
 /**
  * error_exit - prints an error message and exits the program
  * @msg: the error message to print
@@ -39,7 +44,7 @@ int main(int argc, char **argv)
 		exit(99);
 	}
 	do {
-		read_count = read(fd_from, buffer, BUFFER_SIZE);
+		read_count = read(fd_from, buffer, BUFSIZE);
 		if (read_count == -1)
 			error_exit("Error: Can't read from file\n", 98);
 		write_count = write(fd_to, buffer, read_count);
