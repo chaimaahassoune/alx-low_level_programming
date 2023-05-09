@@ -1,59 +1,49 @@
 #include "main.h"
-#define BUFSIZE (1024)
 #include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <fcntl.h>
-
 /**
- * error_exit - prints an error message and exits the program
- * @msg: the error message to print
- * @exit_code: the exit code to use when exiting the program
+ * main - program that copies the content of a file to another file
+ * @argc: number of arguments
+ * @argv: array of string arguments
+ * Return: 0 on success, non-zero on failure
  */
-void error_exit(char *msg, int exit_code)
+int main(int argc, char *argv[])
 {
-	dprintf(STDERR_FILENO, "%s", msg);
-	exit(exit_code);
-}
+	int bytes_read = 1024, bytes_written = 0;
+	char buffer[1024];
+	int fd_from, fd_to;
 
-/**
- * main - copies the contents of one file to another file
- * @argc: the number of arguments passed to the program
- * @argv: an array of strings containing the program arguments
- *
- * Return: Always 0.
- */
-int main(int argc, char **argv)
-{
-	int fd_from, fd_to, read_count, write_count;
-	char buffer[BUFSIZE];
-
+	/* Check if correct number of arguments are passed */
 	if (argc != 3)
-		error_exit("Usage: cp file_from file_to\n", 97);
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"), exit(97);
+	/* open file for reading */
 	fd_from = open(argv[1], O_RDONLY);
 	if (fd_from == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
-	fd_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	fd_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
 	if (fd_to == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-		close(fd_from);
-		exit(99);
+		close(fd_from), exit(99);
 	}
-	do {
-		read_count = read(fd_from, buffer, BUFSIZE);
-		if (read_count == -1)
-			error_exit("Error: Can't read from file\n", 98);
-		write_count = write(fd_to, buffer, read_count);
-		if (write_count == -1)
-			error_exit("Error: Can't write to file\n", 99);
-	} while (read_count > 0);
+	/*Read from file and write to another file until end of file */
+	while (bytes_read == 1024)
+	{
+		bytes_read = read(fd_from, buffer, 1024);
+		if (bytes_read == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+			exit(98);
+		}
+		bytes_written = write(fd_to, buffer, bytes_read);
+		if (bytes_written < bytes_read)
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
+	}
 	if (close(fd_from) == -1)
-		error_exit("Error: Can't close fd\n", 100);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from), exit(100);
 	if (close(fd_to) == -1)
-		error_exit("Error: Can't close fd\n", 100);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_to), exit(100);
 	return (0);
 }
