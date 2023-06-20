@@ -1,6 +1,6 @@
-#More pointers, arrays and strings.
+# More pointers, arrays and strings.
 
-#TASKS
+# TASKS
 
 0. strcat
 
